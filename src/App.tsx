@@ -1,3 +1,5 @@
+import React from "react";
+
 import Calc from './components/Calc';
 import Clock from './components/Clock';
 import { getRandomGradient } from './services/Helpers';
@@ -5,7 +7,7 @@ import { getRandomGradient } from './services/Helpers';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
-export default function App() {
+function App(): JSX.Element {
 
   document.documentElement.style.setProperty("--background-gradient", getRandomGradient());
 
@@ -18,3 +20,5 @@ export default function App() {
     </div>
   );
 }
+
+export default App;
