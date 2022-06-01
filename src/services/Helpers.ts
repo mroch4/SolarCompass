@@ -57,4 +57,3 @@ export {
     radiansToDegrees,
     zeroPrefixer
 };
-
