@@ -1,6 +1,6 @@
-const INTL: string = 'pl-PL';
-const DECIMAL_PRECISION: number = 2;
-const RADIANS_PRECISION: number = 6;
+const INTL = 'pl-PL';
+const DECIMAL_PRECISION = 2;
+const RADIANS_PRECISION = 5;
 
 export {
     INTL,

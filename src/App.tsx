@@ -1,21 +1,22 @@
 import React from "react";
 
-import Calc from './components/Calc';
 import Clock from './components/Clock';
-import { getRandomGradient } from './services/Helpers';
+import Location from './components/Location';
+
+import { getBackgroundGradient } from './services/Helpers';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 function App(): JSX.Element {
 
-  document.documentElement.style.setProperty("--background-gradient", getRandomGradient());
+  document.documentElement.style.setProperty("--background-gradient", getBackgroundGradient());
 
   return (
     <div className="container">
       <div className="card">
-        <Calc />
         <Clock />
+        <Location />
       </div>
     </div>
   );
