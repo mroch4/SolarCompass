@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import { INTL } from "../services/Common";
 
 function Clock(): JSX.Element {

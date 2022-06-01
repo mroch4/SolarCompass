@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-
 import Calc from "./Calc";
-
 import locations from '../services/Locations';
 
 function Location(): JSX.Element {
@@ -28,8 +26,8 @@ function Location(): JSX.Element {
                         <option
                             key={location.id}
                             value={[location.latitude.toString(), location.longitude.toString()]}>
-                            {location.name}</option>
-                    )))}
+                            {location.name}</option>)))
+                    }
                 </select>
             </div>
             <Calc {...selectedLocation} />

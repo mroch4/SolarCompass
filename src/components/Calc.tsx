@@ -1,90 +1,75 @@
 import React from "react";
-
 import suncalc from "suncalc";
-
-import { INTL, RADIANS_PRECISION } from "../services/Common";
-import { getLatitudeSign, getLongitudeSign, degreesStringBuilder, radiansToDegrees } from "../services/Helpers";
-import { Coords } from "../services/Interfaces";
+import Azimuth from './Azimuth';
+import Coordinates from "./Coordinates";
+import Dailylight from './Daylight';
+import { LABELS } from "../services/Common";
+import { AzimuthSection, Coords, CoordsSection, DaylightSection } from "../services/Interfaces";
 
 function Calc(coords: Coords): JSX.Element {
+
+  const latitudeProps: CoordsSection = {
+    label: LABELS.latitude,
+    coordinate: coords.latitude,
+    NS: true
+  }
+
+  const longitudeProps: CoordsSection = {
+    label: LABELS.longitude,
+    coordinate: coords.longitude,
+    NS: false
+  }
 
   const currentDate = new Date();
 
   const solarTimes = suncalc.getTimes(currentDate, coords.latitude, coords.longitude);
 
-  const sunriseDate = new Date(
-    currentDate.getFullYear(),
-    currentDate.getMonth(),
-    currentDate.getDate(),
-    solarTimes.sunrise.getHours(),
-    solarTimes.sunrise.getMinutes(),
-    solarTimes.sunrise.getSeconds());
+  const sunriseProps: DaylightSection = {
+    label: LABELS.sunriseTime,
+    date: new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth(),
+      currentDate.getDate(),
+      solarTimes.sunrise.getHours(),
+      solarTimes.sunrise.getMinutes(),
+      solarTimes.sunrise.getSeconds())
+  };
 
-  const sunriseAzimuth = suncalc.getPosition(solarTimes.sunrise, coords.latitude, coords.longitude);
+  const sunsetProps: DaylightSection = {
+    label: LABELS.sunsetTime,
+    date: new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth(),
+      currentDate.getDate(),
+      solarTimes.sunset.getHours(),
+      solarTimes.sunset.getMinutes(),
+      solarTimes.sunset.getSeconds())
+  };
 
-  const sunsetDate = new Date(
-    currentDate.getFullYear(),
-    currentDate.getMonth(),
-    currentDate.getDate(),
-    solarTimes.sunset.getHours(),
-    solarTimes.sunset.getMinutes(),
-    solarTimes.sunset.getSeconds());
+  const sunriseAzimuth: AzimuthSection = {
+    label: LABELS.sunriseAzimuth,
+    sunPosition: suncalc.getPosition(
+      solarTimes.sunrise,
+      coords.latitude,
+      coords.longitude)
+  };
 
-  const sunsertAzimuth = suncalc.getPosition(solarTimes.sunset, coords.latitude, coords.longitude);
+  const sunsetAzimuth: AzimuthSection = {
+    label: LABELS.sunsetAzimuth,
+    sunPosition: suncalc.getPosition(
+      solarTimes.sunset,
+      coords.latitude,
+      coords.longitude)
+  };
 
   return (
     <>
-      <div className="section">
-        <span className="label">Szerokość geograficzna:</span>
-        <span className="value">
-          {new Intl.NumberFormat(INTL, {
-            minimumFractionDigits: RADIANS_PRECISION,
-          }).format(coords.latitude)}
-          <br />
-          {degreesStringBuilder(coords.latitude)} &nbsp;
-          {getLatitudeSign(coords.latitude)}
-        </span>
-      </div>
-
-      <div className="section">
-        <span className="label">Długość geograficzna:</span>
-        <span className="value">
-          {new Intl.NumberFormat(INTL, {
-            minimumFractionDigits: RADIANS_PRECISION,
-          }).format(coords.longitude)}
-          <br />
-          {degreesStringBuilder(coords.longitude)}&nbsp;
-          {getLongitudeSign(coords.longitude)}
-        </span>
-      </div>
-
-      <div className="section">
-        <span className="label">Wschód słońca:</span>
-        <span className="value">{sunriseDate.toLocaleTimeString(INTL)}</span>
-      </div>
-
-      <div className="section">
-        <span className="label">Zachód słońca:</span>
-        <span className="value">{sunsetDate.toLocaleTimeString(INTL)}</span>
-      </div>
-
-      <div className="section">
-        <span className="label">Azymut wschodu słońca:</span>
-        <span className="value">
-          {new Intl.NumberFormat(INTL, {
-            minimumFractionDigits: RADIANS_PRECISION,
-          }).format(radiansToDegrees(sunriseAzimuth.azimuth))}
-        </span>
-      </div>
-
-      <div className="section">
-        <span className="label">Azymut zachodu słońca:</span>
-        <span className="value">
-          {new Intl.NumberFormat(INTL, {
-            minimumFractionDigits: RADIANS_PRECISION,
-          }).format(radiansToDegrees(sunsertAzimuth.azimuth))}
-        </span>
-      </div>
+      <Coordinates {...latitudeProps} />
+      <Coordinates {...longitudeProps} />
+      <Dailylight {...sunriseProps} />
+      <Dailylight {...sunsetProps} />
+      <Azimuth {...sunriseAzimuth} />
+      <Azimuth {...sunsetAzimuth} />
     </>
   );
 }
