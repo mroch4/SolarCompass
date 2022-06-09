@@ -1,21 +1,25 @@
-import React from "react";
-import { INTL, RADIANS_PRECISION, } from "../services/Common";
-import { radiansToDegrees } from "../services/Helpers";
-import { AzimuthSection } from "../services/Interfaces";
+import React, { FC } from "react";
+import { SETTINGS } from "../common/Settings";
+import { radiansToDegrees } from "../common/Helpers";
 
-function Azimuth(props: AzimuthSection): JSX.Element {
-    return (
-        <div className="section">
-            <span className="label">{props.label}</span>
-            <span className="value">
-                {
-                    new Intl.NumberFormat(INTL, {
-                        minimumFractionDigits: RADIANS_PRECISION
-                    }).format(radiansToDegrees(props.sunPosition.azimuth))
-                }
-            </span>
-        </div>
-    );
+export interface Azimuth {
+  label: string;
+  value: number;
 }
+
+const Azimuth: FC<Azimuth> = (props): JSX.Element => {
+  const { label, value } = props;
+
+  return (
+    <div className="section">
+      <div className="label">{label}</div>
+      <span className="value">
+        {new Intl.NumberFormat(SETTINGS.INTL, {
+          minimumFractionDigits: SETTINGS.RADIANS_PRECISION,
+        }).format(radiansToDegrees(value))}
+      </span>
+    </div>
+  );
+};
 
 export default Azimuth;

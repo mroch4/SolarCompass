@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { INTL } from "../services/Common";
+import React, { FC, useEffect, useState } from "react";
+import LABELS from "../common/Labels";
+import { SETTINGS } from "../common/Settings";
 
-function Clock(): JSX.Element {
-
+const Clock: FC = (): JSX.Element => {
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
@@ -11,10 +11,10 @@ function Clock(): JSX.Element {
 
   return (
     <div className="section">
-      <span className="label">Bieżący czas:</span>
-      <span className="value">{currentTime.toLocaleTimeString(INTL)}</span>
+      <div className="label">{LABELS.CURRENT_TIME}</div>
+      <span className="value">{currentTime.toLocaleString(SETTINGS.INTL)}</span>
     </div>
   );
-}
+};
 
 export default Clock;

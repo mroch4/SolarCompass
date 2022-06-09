@@ -1,6 +1,6 @@
 {
   "short_name": "Solar Comp",
-  "name": "Solar Based Compass",
+  "name": "Compass based on the Sun postition",
   "icons": [
     {
       "src": "favicon.ico",
@@ -9,7 +9,5 @@
     }
   ],
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "display": "standalone"
 }
