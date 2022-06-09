@@ -1,0 +1,13 @@
+{
+  "short_name": "Solar Comp",
+  "name": "Compass based on the Sun postition",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone"
+}

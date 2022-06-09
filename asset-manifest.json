@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/SolarCompass/static/css/main.a1396cca.css",
+    "main.js": "/SolarCompass/static/js/main.9740628a.js",
+    "index.html": "/SolarCompass/index.html",
+    "main.a1396cca.css.map": "/SolarCompass/static/css/main.a1396cca.css.map",
+    "main.9740628a.js.map": "/SolarCompass/static/js/main.9740628a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a1396cca.css",
+    "static/js/main.9740628a.js"
+  ]
+}
