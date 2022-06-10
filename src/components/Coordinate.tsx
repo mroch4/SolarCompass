@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { degreesStringBuilder } from "../common/Helpers";
 import { SETTINGS } from "../common/Settings";
 
 interface CoordinatesSection {
@@ -7,6 +6,18 @@ interface CoordinatesSection {
   value: number;
   indicator: string;
 }
+
+const degreesStringBuilder = (decimalCoordinate: number): string => {
+  const degrees: number = Math.trunc(decimalCoordinate);
+  const minutes: number = Math.trunc((decimalCoordinate - degrees) * 60);
+  const seconds: number = ((decimalCoordinate - degrees) * 60 - minutes) * 60;
+  return `${Math.abs(degrees)}° ${zeroPrefixer(Math.abs(minutes))}' ${zeroPrefixer(Math.abs(+seconds.toFixed(SETTINGS.DECIMAL_PRECISION)))}''`;
+};
+
+const zeroPrefixer = (value: number): string => {
+  if (value < 10) return `0${value}`;
+  return `${value}`;
+};
 
 const Coordinate: FC<CoordinatesSection> = (props): JSX.Element => {
   const { label, value, indicator } = props;

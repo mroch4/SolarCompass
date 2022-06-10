@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import Labels from "../common/Labels";
 import Coordinate from "./Coordinate";
 
-interface Coordinates {
+interface Coords {
   selectedLocation: {
     latitude: number;
     longitude: number;
@@ -21,15 +21,17 @@ const getLongitudeIndicator = (longitude: number): string => {
   return "";
 };
 
-const Coordinates: FC<Coordinates> = (props): JSX.Element => {
+const Coordinates: FC<Coords> = (props): JSX.Element => {
   const latitude = props.selectedLocation.latitude;
   const longitude = props.selectedLocation.longitude;
 
   return (
-    <section>
-      <Coordinate label={Labels.LATITUDE} value={latitude} indicator={getLatitudeIndicator(latitude)} />
-      <Coordinate label={Labels.LONGITUDE} value={longitude} indicator={getLongitudeIndicator(longitude)} />
-    </section>
+    <>
+      <section>
+        <Coordinate label={Labels.LATITUDE} value={latitude} indicator={getLatitudeIndicator(latitude)} />
+        <Coordinate label={Labels.LONGITUDE} value={longitude} indicator={getLongitudeIndicator(longitude)} />
+      </section>
+    </>
   );
 };
 

@@ -1,11 +1,14 @@
 import React, { FC } from "react";
 import { SETTINGS } from "../common/Settings";
-import { radiansToDegrees } from "../common/Helpers";
 
-export interface Azimuth {
+interface Azimuth {
   label: string;
   value: number;
 }
+
+const radiansToDegrees = (rad: number): number => {
+  return (rad * 180) / Math.PI;
+};
 
 const Azimuth: FC<Azimuth> = (props): JSX.Element => {
   const { label, value } = props;
