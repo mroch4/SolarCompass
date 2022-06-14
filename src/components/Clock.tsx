@@ -6,13 +6,16 @@ const Clock: FC = (): JSX.Element => {
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
-    setCurrentTime(new Date());
-  }, [currentTime]);
+    const interval = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 60000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="section">
       <div className="label">{LABELS.CURRENT_TIME}</div>
-      <span className="value">{currentTime.toLocaleString(SETTINGS.INTL)}</span>
+      <span className="value">{currentTime.toLocaleTimeString(SETTINGS.INTL, { timeStyle: "short" })}</span>
     </div>
   );
 };

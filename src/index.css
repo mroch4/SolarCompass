@@ -1,22 +1,41 @@
 body {
-    height: 1200px;
-    background-image: linear-gradient(var(--background-gradient));
-}
-
-.card {
-    background-color: rgba(255, 255, 255, 0.65);
-}
-
-section {
-    margin: 0.5rem 0;
+    /* background-image: linear-gradient(var(--background-gradient)); */
+    background-color: #efefef;
 }
 
 .section {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.25rem;
+    margin: 0 0.25rem 0.5rem;
 }
 
 .label {
     font-weight: bold;
+}
+
+.card {
+    border-top: none;
+    border-top-left-radius: 0;
+}
+
+.form-range {
+    height: unset;
+}
+
+.slider-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-link {
+    color: black;
+}
+
+.active {
+    font-weight: bold;
+}
+
+.btn-outline-secondary {
+    border-color: #ced4da;
 }

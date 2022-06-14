@@ -6,20 +6,18 @@ interface Azimuth {
   value: number;
 }
 
-const radiansToDegrees = (rad: number): number => {
+export const radiansToDegrees = (rad: number): number => {
   return (rad * 180) / Math.PI;
 };
 
 const Azimuth: FC<Azimuth> = (props): JSX.Element => {
-  const { label, value } = props;
-
   return (
     <div className="section">
-      <div className="label">{label}</div>
+      <div className="label">{props.label}</div>
       <span className="value">
         {new Intl.NumberFormat(SETTINGS.INTL, {
-          minimumFractionDigits: SETTINGS.RADIANS_PRECISION,
-        }).format(radiansToDegrees(value))}
+          maximumFractionDigits: SETTINGS.RADIANS_PRECISION,
+        }).format(180 + radiansToDegrees(props.value))}
       </span>
     </div>
   );
