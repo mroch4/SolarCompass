@@ -6,6 +6,27 @@
       "src": "favicon.ico",
       "sizes": "64x64",
       "type": "image/x-icon"
+    },
+    {
+      "src": "marker-icon-2X",
+      "sizes": "25x41",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/location",
+      "type": "image/svg"
+    },
+    {
+      "src": "icons/noon",
+      "type": "image/svg"
+    },
+    {
+      "src": "icons/sunrise",
+      "type": "image/svg"
+    },
+    {
+      "src": "icons/sunset",
+      "type": "image/svg"
     }
   ],
   "start_url": ".",
