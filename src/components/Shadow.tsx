@@ -1,12 +1,8 @@
 import React, { FC } from "react";
+import { NumberSection } from "../interfaces/NumberSection";
 import { SETTINGS } from "../common/Settings";
 
-interface Section {
-  label: string;
-  value: number;
-}
-
-const Shadow: FC<Section> = (props): JSX.Element => {
+const Shadow: FC<NumberSection> = (props): JSX.Element => {
   return (
     <div className="section">
       <div className="label">{props.label}</div>

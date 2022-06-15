@@ -1,17 +1,13 @@
 import React, { FC } from "react";
+import { DateSection } from "../interfaces/DateSection";
 import { SETTINGS } from "../common/Settings";
 
-interface Section {
-  icon: string;
-  date: Date;
-}
-
-const SliderIcon: FC<Section> = (props): JSX.Element => {
-  const iconSource = `icons/${props.icon}.svg`;
+const SliderIcon: FC<DateSection> = (props): JSX.Element => {
+  const iconSource = `icons/${props.label}.svg`;
 
   return (
     <div className="slider-icon">
-      <img src={iconSource} width={SETTINGS.ICON_SIZE} height={SETTINGS.ICON_SIZE} alt={props.icon} />
+      <img src={iconSource} width={SETTINGS.ICON_SIZE} height={SETTINGS.ICON_SIZE} alt={props.label} />
       <span>{props.date.toLocaleTimeString(SETTINGS.INTL, { timeStyle: "short" })}</span>
     </div>
   );

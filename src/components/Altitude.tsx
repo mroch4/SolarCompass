@@ -1,13 +1,9 @@
 import React, { FC } from "react";
+import { NumberSection } from "../interfaces/NumberSection";
 import { SETTINGS } from "../common/Settings";
-import { radiansToDegrees } from "./Azimuth";
+import { radiansToDegrees } from "../common/Helpers";
 
-interface Section {
-  label: string;
-  value: number;
-}
-
-const Altitude: FC<Section> = (props): JSX.Element => {
+const Altitude: FC<NumberSection> = (props): JSX.Element => {
   return (
     <div className="section">
       <div className="label">{props.label}</div>

@@ -1,13 +1,7 @@
 import React, { FC } from "react";
 import Labels from "../common/Labels";
+import { CoordinatesSection } from "../interfaces/CoordinatesSection";
 import Coordinate from "./Coordinate";
-
-interface Coords {
-  selectedLocation: {
-    latitude: number;
-    longitude: number;
-  };
-}
 
 const getLatitudeIndicator = (latitude: number): string => {
   if (latitude > 0) return " N";
@@ -21,9 +15,8 @@ const getLongitudeIndicator = (longitude: number): string => {
   return "";
 };
 
-const Coordinates: FC<Coords> = (props): JSX.Element => {
-  const latitude = props.selectedLocation.latitude;
-  const longitude = props.selectedLocation.longitude;
+const Coordinates: FC<CoordinatesSection> = (props): JSX.Element => {
+  const { latitude, longitude } = props.coordinates;
 
   return (
     <>

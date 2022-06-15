@@ -1,11 +1,7 @@
 import React, { FC } from "react";
+import { DateSection } from "../interfaces/DateSection";
 
-interface Section {
-  label: string;
-  date: Date;
-}
-
-const UtcOffset: FC<Section> = (props): JSX.Element => {
+const UtcOffset: FC<DateSection> = (props): JSX.Element => {
   return (
     <div className="section">
       <div className="label">{props.label}</div>

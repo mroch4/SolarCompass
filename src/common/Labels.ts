@@ -5,7 +5,7 @@ const LABELS = {
     CURRENT_AZIMUTH: "Sunrise Azimuth:",
     LATITUDE: "Latitude:",
     LONGITUDE: "Longitude:",
-    PROGRESS: "Day progress:",
+    PROGRESS: "Progress:",
     SHADOW_LENGTH: "Shadow length:",
     SOLARNOON_TIME: "Noon Time:",
     SOLARNOON_AZIMUTH: "Noon Time:",
@@ -13,7 +13,7 @@ const LABELS = {
     SUNRISE_AZIMUTH: "Sunrise Azimuth:",
     SUNSET_TIME: "Sunset Time:",
     SUNSET_AZIMUTH: "Sunset Azimuth:",
-    UTC_OFFSET: "UTC offset:",
+    UTC_OFFSET: "UTC device offset:",
   },
   PL: {
     CURRENT_ALTITUDE: "Wysokość słońca:",
@@ -21,7 +21,7 @@ const LABELS = {
     CURRENT_AZIMUTH: "Bieżący azymut:",
     LATITUDE: "Szerokość geograficzna:",
     LONGITUDE: "Długość geograficzna:",
-    PROGRESS: "Postęp dnia:",
+    PROGRESS: "Postęp:",
     SHADOW_LENGTH: "Długość cienia:",
     SOLARNOON_TIME: "Południe słoneczne:",
     SOLARNOON_AZIMUTH: "Azymut w południe:",
@@ -29,7 +29,7 @@ const LABELS = {
     SUNRISE_AZIMUTH: "Azymut przy wschodzie:",
     SUNSET_TIME: "Zachód słońca:",
     SUNSET_AZIMUTH: "Azymut przy zachodzie:",
-    UTC_OFFSET: "UTC offset:",
+    UTC_OFFSET: "UTC urządzenia:",
   },
 };
 

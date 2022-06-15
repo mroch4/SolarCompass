@@ -29,7 +29,7 @@ const Coordinate: FC<CoordinatesSection> = (props): JSX.Element => {
         <div className="d-flex flex-column">
           <span className="d-flex justify-content-end">
             {new Intl.NumberFormat(SETTINGS.INTL, {
-              minimumFractionDigits: SETTINGS.RADIANS_PRECISION,
+              minimumFractionDigits: SETTINGS.COORDINATES_PRECISION,
             }).format(value)}
           </span>
           <span className="d-flex justify-content-end">

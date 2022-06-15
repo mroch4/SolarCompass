@@ -1,12 +1,8 @@
 import React, { FC, useEffect } from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+import { Coordinates } from "../interfaces/Coordinates";
 
-interface Coords {
-  latitude: number;
-  longitude: number;
-}
-
-const Map: FC<Coords> = (props): JSX.Element => {
+const Map: FC<Coordinates> = (props): JSX.Element => {
   const { latitude, longitude } = props;
 
   const handleOnFlyTo = () => {

@@ -1,23 +1,17 @@
 import React, { FC } from "react";
+import { NumberSection } from "../interfaces/NumberSection";
 import { SETTINGS } from "../common/Settings";
+import { radiansToDegrees } from "../common/Helpers";
 
-interface Azimuth {
-  label: string;
-  value: number;
-}
-
-export const radiansToDegrees = (rad: number): number => {
-  return (rad * 180) / Math.PI;
-};
-
-const Azimuth: FC<Azimuth> = (props): JSX.Element => {
+const Azimuth: FC<NumberSection> = (props): JSX.Element => {
   return (
     <div className="section">
       <div className="label">{props.label}</div>
       <span className="value">
         {new Intl.NumberFormat(SETTINGS.INTL, {
-          maximumFractionDigits: SETTINGS.RADIANS_PRECISION,
+          maximumFractionDigits: SETTINGS.DECIMAL_PRECISION,
         }).format(180 + radiansToDegrees(props.value))}
+        °
       </span>
     </div>
   );

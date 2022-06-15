@@ -1,10 +1,4 @@
-interface Location {
-  id: number;
-  name: string;
-  desc: string;
-  latitude: number;
-  longitude: number;
-}
+import { Location } from "./../interfaces/Location";
 
 const LOCATIONS: Location[] = [
   { id: 1, name: "Poznań", desc: "Poznań", latitude: 52.408552, longitude: 16.9338885 },

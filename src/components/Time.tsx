@@ -1,12 +1,8 @@
 import React, { FC } from "react";
+import { DateSection } from "../interfaces/DateSection";
 import { SETTINGS } from "../common/Settings";
 
-interface Section {
-  label: string;
-  date: Date;
-}
-
-const Time: FC<Section> = (props): JSX.Element => {
+const Time: FC<DateSection> = (props): JSX.Element => {
   return (
     <div className="section">
       <div className="label">{props.label}</div>

@@ -15,7 +15,7 @@ const Clock: FC = (): JSX.Element => {
   return (
     <div className="section">
       <div className="label">{LABELS.CURRENT_TIME}</div>
-      <span className="value">{currentTime.toLocaleTimeString(SETTINGS.INTL, { timeStyle: "short" })}</span>
+      <span className="value">{currentTime.toLocaleTimeString(SETTINGS.INTL, { timeStyle: "medium" })}</span>
     </div>
   );
 };

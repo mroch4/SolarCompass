@@ -1,11 +1,7 @@
 import React, { FC } from "react";
+import { NumberSection } from "../interfaces/NumberSection";
 
-interface Section {
-  label: string;
-  value: number;
-}
-
-const Progress: FC<Section> = (props): JSX.Element => {
+const Progress: FC<NumberSection> = (props): JSX.Element => {
   return (
     <div className="section">
       <div className="label">{props.label}</div>
