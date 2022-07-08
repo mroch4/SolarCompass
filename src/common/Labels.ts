@@ -1,6 +1,7 @@
 const LABELS = {
   EN: {
-    CURRENT_ALTITUDE: "Sun altitude",
+    AMIUTH_SPAN: "Azimuth span:",
+    CURRENT_ALTITUDE: "Sun altitude:",
     CURRENT_TIME: "Current Time:",
     CURRENT_AZIMUTH: "Sunrise Azimuth:",
     LATITUDE: "Latitude:",
@@ -16,6 +17,7 @@ const LABELS = {
     UTC_OFFSET: "UTC device offset:",
   },
   PL: {
+    AMIUTH_SPAN: "Dzienny przedział:",
     CURRENT_ALTITUDE: "Wysokość słońca:",
     CURRENT_TIME: "Bieżący czas:",
     CURRENT_AZIMUTH: "Bieżący azymut:",

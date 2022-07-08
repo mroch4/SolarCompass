@@ -1,15 +1,16 @@
-import React from "react";
-import Layout from "./components/Layout";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import "leaflet/dist/leaflet.css";
-import "./index.css";
+import "./styles/index.css";
+
+import ContextProvider from "./components/Context";
+import Layout from "./components/_Layout";
+import React from "react";
 
 function App(): JSX.Element {
   return (
-    <div className="container mt-3">
+    <ContextProvider>
       <Layout />
-    </div>
+    </ContextProvider>
   );
 }
 

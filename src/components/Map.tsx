@@ -1,25 +1,30 @@
-import React, { FC, useEffect } from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
-import { Coordinates } from "../interfaces/Coordinates";
+import React, { FC } from "react";
 
-const Map: FC<Coordinates> = (props): JSX.Element => {
-  const { latitude, longitude } = props;
+import { LatLng } from "leaflet";
+import { useAppContext } from "./Context";
 
-  const handleOnFlyTo = () => {
+interface MapCentreProps {
+  mapCentre: LatLng;
+}
+
+const Map: FC = (): JSX.Element => {
+  const { coords } = useAppContext();
+  const { latitude, longitude } = coords;
+
+  const UpdateMapCentre = (props: MapCentreProps): JSX.Element => {
     const map = useMap();
-    map.panTo([latitude, longitude]);
+    map.panTo(props.mapCentre);
+    return null;
   };
 
-  useEffect(() => {
-    handleOnFlyTo;
-  }, [latitude, longitude]);
-
   return (
-    <MapContainer center={[latitude, longitude]} zoom={12} scrollWheelZoom={false} style={{ width: "100%", height: "400px" }}>
+    <MapContainer center={[latitude, longitude]} zoom={1} scrollWheelZoom={false} style={{ width: "100%", height: "400px" }}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <Marker position={[latitude, longitude]}>
         <Popup>Selected Location</Popup>
       </Marker>
+      {/* <UpdateMapCentre mapCentre={coords} /> */}
     </MapContainer>
   );
 };

@@ -1,11 +1,7 @@
 import React, { FC } from "react";
-import { SETTINGS } from "../common/Settings";
 
-interface CoordinatesSection {
-  label: string;
-  value: number;
-  indicator: string;
-}
+import { ISectionProps } from "../../interfaces/props/ISectionProps";
+import { SETTINGS } from "../../common/Settings";
 
 const degreesStringBuilder = (decimalCoordinate: number): string => {
   const degrees: number = Math.trunc(decimalCoordinate);
@@ -19,22 +15,22 @@ const zeroPrefixer = (value: number): string => {
   return `${value}`;
 };
 
-const Coordinate: FC<CoordinatesSection> = (props): JSX.Element => {
-  const { label, value, indicator } = props;
+const Coordinate: FC<ISectionProps> = (props): JSX.Element => {
+  const { label, value, unit } = props;
+
+  const formattedValue = new Intl.NumberFormat(SETTINGS.INTL, {
+    minimumFractionDigits: SETTINGS.COORDINATES_PRECISION,
+  }).format(value);
 
   return (
     <>
       <div className="section">
         <div className="label">{label}</div>
-        <div className="d-flex flex-column">
-          <span className="d-flex justify-content-end">
-            {new Intl.NumberFormat(SETTINGS.INTL, {
-              minimumFractionDigits: SETTINGS.COORDINATES_PRECISION,
-            }).format(value)}
-          </span>
-          <span className="d-flex justify-content-end">
+        <div className="column">
+          <span className="line">{formattedValue}</span>
+          <span className="line">
             {degreesStringBuilder(value)}
-            {indicator}
+            {unit}
           </span>
         </div>
       </div>

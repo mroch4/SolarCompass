@@ -1,7 +1,9 @@
 import React, { FC } from "react";
+
+import Coordinate from "./partials/_Coordinate";
+import { ISectionProps } from "../interfaces/props/ISectionProps";
 import Labels from "../common/Labels";
-import { CoordinatesSection } from "../interfaces/CoordinatesSection";
-import Coordinate from "./Coordinate";
+import { useAppContext } from "./Context";
 
 const getLatitudeIndicator = (latitude: number): string => {
   if (latitude > 0) return " N";
@@ -15,14 +17,27 @@ const getLongitudeIndicator = (longitude: number): string => {
   return "";
 };
 
-const Coordinates: FC<CoordinatesSection> = (props): JSX.Element => {
-  const { latitude, longitude } = props.coordinates;
+const Coordinates: FC = (): JSX.Element => {
+  const { coords } = useAppContext();
+  const { latitude, longitude } = coords;
+
+  const latitudeProps: ISectionProps = {
+    label: Labels.LATITUDE,
+    value: latitude,
+    unit: getLatitudeIndicator(latitude),
+  };
+
+  const longitudeProps: ISectionProps = {
+    label: Labels.LONGITUDE,
+    value: longitude,
+    unit: getLongitudeIndicator(longitude),
+  };
 
   return (
     <>
       <section>
-        <Coordinate label={Labels.LATITUDE} value={latitude} indicator={getLatitudeIndicator(latitude)} />
-        <Coordinate label={Labels.LONGITUDE} value={longitude} indicator={getLongitudeIndicator(longitude)} />
+        <Coordinate {...latitudeProps} />
+        <Coordinate {...longitudeProps} />
       </section>
     </>
   );

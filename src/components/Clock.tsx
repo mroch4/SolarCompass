@@ -1,21 +1,18 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
+
 import LABELS from "../common/Labels";
 import { SETTINGS } from "../common/Settings";
+import { useAppContext } from "./Context";
 
 const Clock: FC = (): JSX.Element => {
-  const [currentTime, setCurrentTime] = useState(new Date());
+  const { appTime } = useAppContext();
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 60000);
-    return () => clearInterval(interval);
-  }, []);
+  const formattedValue = appTime.toLocaleTimeString(SETTINGS.INTL, { timeStyle: "medium" });
 
   return (
     <div className="section">
       <div className="label">{LABELS.CURRENT_TIME}</div>
-      <span className="value">{currentTime.toLocaleTimeString(SETTINGS.INTL, { timeStyle: "medium" })}</span>
+      <span className="value">{formattedValue}</span>
     </div>
   );
 };

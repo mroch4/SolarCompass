@@ -1,4 +1,4 @@
-export interface DateSection {
+export interface IDateProps {
   label: string;
   date: Date;
 }

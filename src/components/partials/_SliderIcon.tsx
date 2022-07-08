@@ -1,8 +1,9 @@
 import React, { FC } from "react";
-import { DateSection } from "../interfaces/DateSection";
-import { SETTINGS } from "../common/Settings";
 
-const SliderIcon: FC<DateSection> = (props): JSX.Element => {
+import { IDateProps } from "../../interfaces/props/IDateProps";
+import { SETTINGS } from "../../common/Settings";
+
+const SliderIcon: FC<IDateProps> = (props): JSX.Element => {
   const iconSource = `icons/${props.label}.svg`;
 
   return (
