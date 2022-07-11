@@ -7,7 +7,7 @@ const degreesStringBuilder = (decimalCoordinate: number): string => {
   const degrees: number = Math.trunc(decimalCoordinate);
   const minutes: number = Math.trunc((decimalCoordinate - degrees) * 60);
   const seconds: number = ((decimalCoordinate - degrees) * 60 - minutes) * 60;
-  return `${Math.abs(degrees)}° ${zeroPrefixer(Math.abs(minutes))}' ${zeroPrefixer(Math.abs(+seconds.toFixed(SETTINGS.DECIMAL_PRECISION)))}''`;
+  return `${Math.abs(degrees)}° ${zeroPrefixer(Math.abs(minutes))}' ${zeroPrefixer(Math.abs(+seconds.toFixed(2)))}''`;
 };
 
 const zeroPrefixer = (value: number): string => {
@@ -19,7 +19,7 @@ const Coordinate: FC<ISectionProps> = (props): JSX.Element => {
   const { label, value, unit } = props;
 
   const formattedValue = new Intl.NumberFormat(SETTINGS.INTL, {
-    minimumFractionDigits: SETTINGS.COORDINATES_PRECISION,
+    minimumFractionDigits: 6,
   }).format(value);
 
   return (

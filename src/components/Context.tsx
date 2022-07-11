@@ -18,16 +18,17 @@ const initial = {
     latitude: LOCATIONS[0].latitude,
     longitude: LOCATIONS[0].longitude,
   },
-  tab: TABS[0],
+  tab: TABS.Pri,
 };
 
 const ContextProvider: FC<IContextProviderProps> = ({ children }) => {
-  const [appTime] = useState<Date>(initial.appTime);
+  const [appTime, setAppTime] = useState<Date>(initial.appTime);
   const [coords, setCoords] = useState<ICoordinates>(initial.coords);
   const [tab, setTab] = useState<string>(initial.tab);
 
   const contextValue = {
     appTime: appTime,
+    changeTime: setAppTime,
     coords: coords,
     changeCoords: setCoords,
     tab: tab,

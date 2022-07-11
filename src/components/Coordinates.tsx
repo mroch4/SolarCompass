@@ -34,12 +34,10 @@ const Coordinates: FC = (): JSX.Element => {
   };
 
   return (
-    <>
-      <section>
-        <Coordinate {...latitudeProps} />
-        <Coordinate {...longitudeProps} />
-      </section>
-    </>
+    <section>
+      <Coordinate {...latitudeProps} />
+      <Coordinate {...longitudeProps} />
+    </section>
   );
 };
 

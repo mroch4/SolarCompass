@@ -4,7 +4,8 @@ import LOCATIONS from "../common/Locations";
 import { useAppContext } from "./Context";
 
 const Form: FC = (): JSX.Element => {
-  const { changeCoords } = useAppContext();
+  const { coords, changeCoords } = useAppContext();
+  const { latitude, longitude } = coords;
 
   const getNavigator = () => {
     navigator.geolocation.getCurrentPosition(
@@ -12,21 +13,36 @@ const Form: FC = (): JSX.Element => {
         changeCoords({ latitude: position.coords.latitude, longitude: position.coords.longitude });
       },
       (error) => {
-        console.error("Error Code = " + error.code + " - " + error.message);
+        alert(`Unable to get User location.\n\nError Code = ${error.code}: ${error.message}.`);
       }
     );
   };
 
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const item = LOCATIONS.find((item) => item.name === e.target.value);
-    changeCoords({ latitude: item.latitude, longitude: item.longitude });
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>): void => {
+    const id = e.target.value;
+    if (id === "user-location") {
+      getNavigator();
+    } else {
+      const item = LOCATIONS.find((item) => item.id === id);
+      changeCoords({ latitude: item.latitude, longitude: item.longitude });
+    }
+  };
+
+  const getLocationId = (): string => {
+    const item = LOCATIONS.find((item) => item.latitude === latitude && item.longitude === longitude);
+    if (item) {
+      return item.id;
+    } else {
+      return "user-location";
+    }
   };
 
   return (
     <div className="form-group">
-      <select className="form-control" onChange={handleChange}>
+      <select className="form-control" value={getLocationId()} onChange={handleChange}>
+        <option value="user-location">User location</option>
         {LOCATIONS.map((location) => (
-          <option key={location.id} value={location.name}>
+          <option key={location.id} value={location.id}>
             {location.name}
           </option>
         ))}

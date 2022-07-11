@@ -19,12 +19,12 @@ const Map: FC = (): JSX.Element => {
   };
 
   return (
-    <MapContainer center={[latitude, longitude]} zoom={1} scrollWheelZoom={false} style={{ width: "100%", height: "400px" }}>
+    <MapContainer center={[latitude, longitude]} zoom={12} scrollWheelZoom={false} style={{ width: "100%", height: "400px" }}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <Marker position={[latitude, longitude]}>
         <Popup>Selected Location</Popup>
       </Marker>
-      {/* <UpdateMapCentre mapCentre={coords} /> */}
+      {/* <UpdateMapCentre mapCentre={{ lat: latitude, lng: longitude }} /> */}
     </MapContainer>
   );
 };

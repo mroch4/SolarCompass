@@ -8,19 +8,16 @@ const radiansToDegrees = (rad: number): number => {
 };
 
 const Angle: FC<ISectionProps> = (props): JSX.Element => {
-  const { label, value, unit } = props;
+  const { label, value } = props;
 
   const formattedValue = new Intl.NumberFormat(SETTINGS.INTL, {
-    maximumFractionDigits: SETTINGS.DECIMAL_PRECISION,
+    maximumFractionDigits: 1,
   }).format(radiansToDegrees(value));
 
   return (
     <div className="section">
       <div className="label">{label}</div>
-      <span className="value">
-        {formattedValue}
-        {unit}
-      </span>
+      <span className="value">{formattedValue}°</span>
     </div>
   );
 };
