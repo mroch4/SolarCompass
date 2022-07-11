@@ -36,6 +36,7 @@ const Slider: FC = (): JSX.Element => {
   const inputProps = {
     value: getProgess(),
   };
+
   const sunriseIcon: IDateProps = {
     label: "sunrise",
     date: sunriseTime,
@@ -50,6 +51,7 @@ const Slider: FC = (): JSX.Element => {
     label: "sunset",
     date: sunsetTime,
   };
+
   return (
     <>
       <Section {...progressProps} />
