@@ -2,14 +2,14 @@ import React, { FC } from "react";
 
 import { IDateProps } from "../interfaces/props/IDateProps";
 import { ISectionProps } from "../interfaces/props/ISectionProps";
-import LABELS from "./../common/Labels";
 import Section from "./partials/_Section";
 import SliderIcon from "./partials/_SliderIcon";
 import suncalc from "suncalc";
 import { useAppContext } from "./Context";
+import { zeroPrefixer } from "../common/Helpers";
 
 const Slider: FC = (): JSX.Element => {
-  const { appTime, coords } = useAppContext();
+  const { appTime, coords, labels } = useAppContext();
   const { latitude, longitude } = coords;
 
   const solarTimes = suncalc.getTimes(appTime, latitude, longitude);
@@ -17,7 +17,26 @@ const Slider: FC = (): JSX.Element => {
   const noonTime = solarTimes.solarNoon;
   const sunsetTime = solarTimes.sunset;
 
-  const dayProgress = ((appTime.getTime() - sunriseTime.getTime()) / (sunsetTime.getTime() - sunriseTime.getTime())) * 100;
+  const dayLength = sunsetTime.valueOf() - sunriseTime.valueOf();
+
+  const dayLengthStringBuilder = () => {
+    const hours = dayLength / (60 * 60 * 1000);
+    const hoursFormatted = Math.trunc(hours);
+    const hoursString = zeroPrefixer(hoursFormatted);
+
+    const minutes = (hours - hoursFormatted) * 60;
+    const minutesFormatted = Math.trunc(minutes);
+    const minutesString = zeroPrefixer(minutesFormatted);
+
+    const seconds = (minutes - minutesFormatted) * 60;
+    const secondsFormatted = Math.trunc(seconds);
+    const secondsString = zeroPrefixer(secondsFormatted);
+
+    return `${hoursString}h ${minutesString}m ${secondsString}s`;
+    //return `${hoursString}:${minutesString}:${secondsString}`;
+  };
+
+  const dayProgress = ((appTime.valueOf() - sunriseTime.valueOf()) / dayLength) * 100;
 
   // const isDay = sunriseTime < appTime && appTime < sunsetTime;
   const getProgess = (): number => {
@@ -27,7 +46,7 @@ const Slider: FC = (): JSX.Element => {
   };
 
   const progressProps: ISectionProps = {
-    label: LABELS.PROGRESS,
+    label: labels.PROGRESS,
     value: getProgess(),
     rounding: 0,
     unit: "%",
@@ -55,6 +74,10 @@ const Slider: FC = (): JSX.Element => {
   return (
     <>
       <Section {...progressProps} />
+      <div className="section">
+        <div className="label">Day duration:</div>
+        <span className="value">{dayLengthStringBuilder()}</span>
+      </div>
       <input type="range" className="form-range" disabled {...inputProps}></input>
       <div className="slider">
         <SliderIcon {...sunriseIcon} />

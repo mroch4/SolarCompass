@@ -1,12 +1,11 @@
 import React, { FC } from "react";
 
-import { SETTINGS } from "../common/Settings";
 import { useAppContext } from "./Context";
 
 const Clock: FC = (): JSX.Element => {
-  const { appTime } = useAppContext();
+  const { appTime, intl } = useAppContext();
 
-  const formattedValue = appTime.toLocaleString(SETTINGS.INTL);
+  const formattedValue = appTime.toLocaleTimeString(intl, { hour: "2-digit", minute: "2-digit" });
 
   return (
     <div className="d-flex justify-content-end">

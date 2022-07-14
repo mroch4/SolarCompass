@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
 import { ISectionProps } from "../../interfaces/props/ISectionProps";
-import { SETTINGS } from "../../common/Settings";
+import { useAppContext } from "../Context";
 
 const radiansToDegrees = (rad: number): number => {
   return (rad * 180) / Math.PI;
@@ -10,7 +10,9 @@ const radiansToDegrees = (rad: number): number => {
 const Angle: FC<ISectionProps> = (props): JSX.Element => {
   const { label, value } = props;
 
-  const formattedValue = new Intl.NumberFormat(SETTINGS.INTL, {
+  const { intl } = useAppContext();
+
+  const formattedValue = new Intl.NumberFormat(intl, {
     maximumFractionDigits: 1,
   }).format(radiansToDegrees(value));
 

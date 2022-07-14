@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 
 import Clock from "./Clock";
+import Language from "./Language";
 import Navbar from "./Navbar";
 import Pri from "./tabs/Pri";
 import Sec from "./tabs/Sec";
@@ -20,6 +21,7 @@ const Layout: FC = (): JSX.Element => {
         {tab === TABS.Sec ? <Sec /> : null}
         {tab === TABS.Tri ? <Tri /> : null}
       </div>
+      <Language />
     </div>
   );
 };

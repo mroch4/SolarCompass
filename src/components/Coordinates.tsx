@@ -2,7 +2,6 @@ import React, { FC } from "react";
 
 import Coordinate from "./partials/_Coordinate";
 import { ISectionProps } from "../interfaces/props/ISectionProps";
-import Labels from "../common/Labels";
 import { useAppContext } from "./Context";
 
 const getLatitudeIndicator = (latitude: number): string => {
@@ -18,17 +17,17 @@ const getLongitudeIndicator = (longitude: number): string => {
 };
 
 const Coordinates: FC = (): JSX.Element => {
-  const { coords } = useAppContext();
+  const { coords, labels } = useAppContext();
   const { latitude, longitude } = coords;
 
   const latitudeProps: ISectionProps = {
-    label: Labels.LATITUDE,
+    label: labels.LATITUDE,
     value: latitude,
     unit: getLatitudeIndicator(latitude),
   };
 
   const longitudeProps: ISectionProps = {
-    label: Labels.LONGITUDE,
+    label: labels.LONGITUDE,
     value: longitude,
     unit: getLongitudeIndicator(longitude),
   };

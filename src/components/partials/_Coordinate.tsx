@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 
 import { ISectionProps } from "../../interfaces/props/ISectionProps";
-import { SETTINGS } from "../../common/Settings";
+import { useAppContext } from "../Context";
+import { zeroPrefixer } from "../../common/Helpers";
 
 const degreesStringBuilder = (decimalCoordinate: number): string => {
   const degrees: number = Math.trunc(decimalCoordinate);
@@ -10,15 +11,12 @@ const degreesStringBuilder = (decimalCoordinate: number): string => {
   return `${Math.abs(degrees)}° ${zeroPrefixer(Math.abs(minutes))}' ${zeroPrefixer(Math.abs(+seconds.toFixed(2)))}''`;
 };
 
-const zeroPrefixer = (value: number): string => {
-  if (value < 10) return `0${value}`;
-  return `${value}`;
-};
-
 const Coordinate: FC<ISectionProps> = (props): JSX.Element => {
   const { label, value, unit } = props;
 
-  const formattedValue = new Intl.NumberFormat(SETTINGS.INTL, {
+  const { intl } = useAppContext();
+
+  const formattedValue = new Intl.NumberFormat(intl, {
     minimumFractionDigits: 6,
   }).format(value);
 

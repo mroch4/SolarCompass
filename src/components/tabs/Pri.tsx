@@ -13,13 +13,9 @@ const Pri: FC = (): JSX.Element => {
 
   const handleOnChange = () => {
     const dateRefVal = dateRef.current.value;
-    //console.log(dateRefVal);
     const timeRefVal = timeRef.current.value;
-    //console.log(timeRefVal);
     const parsedDate = Date.parse(`${dateRefVal}T${timeRefVal}`);
-    //console.log(parsedDate);
     const customDate = new Date(parsedDate);
-    //console.log(customDate);
     changeTime(customDate);
   };
 
