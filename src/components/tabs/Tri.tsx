@@ -4,6 +4,7 @@ import Angle from "../partials/_Angle";
 import { IDateProps } from "../../interfaces/props/IDateProps";
 import { ISectionProps } from "../../interfaces/props/ISectionProps";
 import Section from "../partials/_Section";
+import Slider from "../Slider";
 import Time from "../partials/_Time";
 import { isValidDate } from "../../helpers/isValidDate";
 import suncalc from "suncalc";

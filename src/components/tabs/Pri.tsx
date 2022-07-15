@@ -2,6 +2,7 @@ import React, { FC, useRef } from "react";
 
 import Coordinates from "../Coordinates";
 import Form from "react-bootstrap/Form";
+import Location from "../Location";
 import Map from "../Map";
 import Slider from "../Slider";
 import { useAppContext } from "../../hooks/useAppContext";
@@ -34,7 +35,7 @@ const Pri: FC = (): JSX.Element => {
           </div>
         </Form.Group>
       </Form>
-      <Form />
+      <Location />
       <Map />
       <Coordinates />
     </>

@@ -50,11 +50,11 @@ const Slider: FC = (): JSX.Element => {
 
   return (
     <>
-      <Section {...progressProps} />
       <section>
         <div className="label">Day duration:</div>
         <span className="value">{dayLengthFormatted}</span>
       </section>
+      <Section {...progressProps} />
       <input type="range" className="form-range" disabled {...inputProps}></input>
       <div className="slider">
         <SliderIcon {...sunriseIcon} />

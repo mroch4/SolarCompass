@@ -3,7 +3,7 @@ import React, { ChangeEvent, FC } from "react";
 import LOCATIONS from "../common/Locations";
 import { useAppContext } from "../hooks/useAppContext";
 
-const Form: FC = (): JSX.Element => {
+const Location: FC = (): JSX.Element => {
   const { coords, changeCoords } = useAppContext();
   const { latitude, longitude } = coords;
 
@@ -54,4 +54,4 @@ const Form: FC = (): JSX.Element => {
   );
 };
 
-export default Form;
+export default Location;
