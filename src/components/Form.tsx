@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FC } from "react";
 
 import LOCATIONS from "../common/Locations";
-import { useAppContext } from "./Context";
+import { useAppContext } from "../hooks/useAppContext";
 
 const Form: FC = (): JSX.Element => {
   const { coords, changeCoords } = useAppContext();

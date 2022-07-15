@@ -1,11 +1,8 @@
 import React, { FC } from "react";
 
 import { ISectionProps } from "../../interfaces/props/ISectionProps";
-import { useAppContext } from "../Context";
-
-const radiansToDegrees = (rad: number): number => {
-  return (rad * 180) / Math.PI;
-};
+import { radiansToDegrees } from "../../helpers/radiansConverter";
+import { useAppContext } from "../../hooks/useAppContext";
 
 const Angle: FC<ISectionProps> = (props): JSX.Element => {
   const { label, value } = props;
@@ -17,10 +14,10 @@ const Angle: FC<ISectionProps> = (props): JSX.Element => {
   }).format(radiansToDegrees(value));
 
   return (
-    <div className="section">
-      <div className="label">{label}</div>
+    <section>
+      <span className="label">{label}</span>
       <span className="value">{formattedValue}°</span>
-    </div>
+    </section>
   );
 };
 

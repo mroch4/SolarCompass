@@ -14,4 +14,11 @@ export interface ILabels {
   SUNSET_TIME: string;
   SUNSET_AZIMUTH: string;
   UTC_OFFSET: string;
+  DUSK: string;
+  DAWN: string;
+  NAUTICAL_DAWN: string;
+  NAUTICAL_DUSK: string;
+  NIGHT_START: string;
+  NIGHT_END: string;
+  NADIR: string;
 }

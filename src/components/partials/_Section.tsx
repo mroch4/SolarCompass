@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
 import { ISectionProps } from "../../interfaces/props/ISectionProps";
-import { useAppContext } from "../Context";
+import { useAppContext } from "../../hooks/useAppContext";
 
 const Section: FC<ISectionProps> = (props): JSX.Element => {
   const { label, value, rounding, unit } = props;
@@ -13,13 +13,13 @@ const Section: FC<ISectionProps> = (props): JSX.Element => {
   }).format(value);
 
   return (
-    <div className="section">
-      <div className="label">{label}</div>
+    <section>
+      <span className="label">{label}</span>
       <span className="value">
         {formattedValue}
         {unit}
       </span>
-    </div>
+    </section>
   );
 };
 

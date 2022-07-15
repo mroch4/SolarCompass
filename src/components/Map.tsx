@@ -2,7 +2,7 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import React, { FC } from "react";
 
 import UpdateMapCentre from "./UpdateMapCenter";
-import { useAppContext } from "./Context";
+import { useAppContext } from "../hooks/useAppContext";
 
 const Map: FC = (): JSX.Element => {
   const { coords } = useAppContext();

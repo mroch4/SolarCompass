@@ -1,17 +1,24 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 
-import { useAppContext } from "./Context";
+import { IDateProps } from "../interfaces/props/IDateProps";
+import Time from "./partials/_Time";
+import { useAppContext } from "../hooks/useAppContext";
 
 const Clock: FC = (): JSX.Element => {
-  const { appTime, intl } = useAppContext();
+  const { labels } = useAppContext();
 
-  const formattedValue = appTime.toLocaleTimeString(intl, { hour: "2-digit", minute: "2-digit" });
+  const [currentTime, setCurrentTime] = useState(new Date());
 
-  return (
-    <div className="d-flex justify-content-end">
-      <span className="value">{formattedValue}</span>
-    </div>
-  );
+  useEffect(() => {
+    setCurrentTime(new Date());
+  }, [currentTime]);
+
+  const currentTimeProps: IDateProps = {
+    label: labels.CURRENT_TIME,
+    date: currentTime,
+  };
+
+  return <Time {...currentTimeProps} />;
 };
 
 export default Clock;

@@ -1,13 +1,14 @@
 import React, { FC, useRef } from "react";
 
 import Coordinates from "../Coordinates";
-import Form from "../Form";
+import Form from "react-bootstrap/Form";
 import Map from "../Map";
 import Slider from "../Slider";
-import { useAppContext } from "../Context";
+import { useAppContext } from "../../hooks/useAppContext";
 
 const Pri: FC = (): JSX.Element => {
   const { appTime, changeTime } = useAppContext();
+
   const dateRef = useRef(null);
   const timeRef = useRef(null);
 
@@ -25,14 +26,14 @@ const Pri: FC = (): JSX.Element => {
   return (
     <>
       <Slider />
-      <form>
-        <div className="form-group mt-1 mb-3">
-          <div className="input-group input-group ">
+      <Form>
+        <Form.Group className="mt-1 mb-3">
+          <div className="input-group">
             <input type="date" className="form-control" value={datePlaceholder} ref={dateRef} onChange={handleOnChange} />
             <input type="time" className="form-control" value={timePlaceholder} ref={timeRef} onChange={handleOnChange} />
           </div>
-        </div>
-      </form>
+        </Form.Group>
+      </Form>
       <Form />
       <Map />
       <Coordinates />

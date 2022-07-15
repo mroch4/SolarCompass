@@ -1,7 +1,8 @@
-import { Container } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
+
 import { LABELS } from "../common/Labels";
 import React from "react";
-import { useAppContext } from "./Context";
+import { useAppContext } from "../hooks/useAppContext";
 
 const Language = () => {
   const { intl, changeIntl } = useAppContext();
@@ -17,12 +18,11 @@ const Language = () => {
 
   return (
     <Container>
-      <div className="form-check">
-        <label className="form-check-label">
-          <input className="form-check-input" type="checkbox" checked={isPL} onChange={handleLanguageChange} />
-          English
-        </label>
-      </div>
+      <Form>
+        <Form.Group className="mb-3">
+          <Form.Check type="checkbox" checked={isPL} onChange={handleLanguageChange} label="English" />
+        </Form.Group>
+      </Form>
     </Container>
   );
 };

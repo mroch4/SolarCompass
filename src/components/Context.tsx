@@ -1,23 +1,15 @@
-import React, { FC, createContext, useContext, useEffect, useState } from "react";
+import React, { FC, createContext, useEffect, useState } from "react";
 
 import { IContextProps } from "../interfaces/props/IContextProps";
 import { IContextProviderProps } from "../interfaces/props/IContextProviderProps";
 import { ICoordinates } from "../interfaces/ICoordinates";
-import { LABELS } from "../common/Labels";
 import LOCATIONS from "../common/Locations";
 import { TABS } from "../common/TabsEnum";
+import { getLabelsPack } from "../helpers/getLabelsPack";
 
-const AppContext = createContext<IContextProps | null>(null);
-
-export const useAppContext = () => {
-  return useContext(AppContext);
-};
+export const AppContext = createContext<IContextProps | null>(null);
 
 const initialIntl = "pl-PL";
-const getLabelsPack = (countryCode: string) => {
-  const labelsPackage = LABELS.find((set) => set.intl === countryCode);
-  return labelsPackage.labels;
-};
 
 const initial = {
   appTime: new Date(),

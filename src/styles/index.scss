@@ -25,26 +25,6 @@ body {
       margin-left: 0.25rem;
     }
 
-    .section {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 0.5rem;
-
-      .label {
-        font-weight: bold;
-      }
-
-      .column {
-        display: flex;
-        flex-direction: column;
-
-        .line {
-          display: flex;
-          justify-content: end;
-        }
-      }
-    }
-
     .slider {
       display: flex;
       justify-content: space-between;
@@ -65,4 +45,28 @@ body {
       border: 1px solid #eaeaea;
     }
   }
+}
+
+section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+
+  .label {
+    font-weight: bold;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+
+    .line {
+      display: flex;
+      justify-content: end;
+    }
+  }
+}
+
+.container {
+  margin-top: 1rem;
 }

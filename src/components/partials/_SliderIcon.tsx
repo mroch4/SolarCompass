@@ -1,8 +1,7 @@
 import React, { FC } from "react";
 
 import { IDateProps } from "../../interfaces/props/IDateProps";
-import { SETTINGS } from "../../common/Settings";
-import { useAppContext } from "../Context";
+import { useAppContext } from "../../hooks/useAppContext";
 
 const SliderIcon: FC<IDateProps> = (props): JSX.Element => {
   const { label, date } = props;
@@ -10,7 +9,7 @@ const SliderIcon: FC<IDateProps> = (props): JSX.Element => {
   const { intl } = useAppContext();
 
   const iconSource = `icons/${props.label}.svg`;
-  const iconSize = SETTINGS.ICON_SIZE;
+  const iconSize = 24;
   const dateFormatted = date.toLocaleTimeString(intl, { timeStyle: "short" });
 
   return (
