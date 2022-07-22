@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/SolarCompass/static/css/main.ff463fc6.css",
-    "main.js": "/SolarCompass/static/js/main.3b77411d.js",
+    "main.css": "/SolarCompass/static/css/main.5769f48c.css",
+    "main.js": "/SolarCompass/static/js/main.f2c1028d.js",
     "static/media/background.png": "/SolarCompass/static/media/background.390809b025878cf97656.png",
     "index.html": "/SolarCompass/index.html",
-    "main.ff463fc6.css.map": "/SolarCompass/static/css/main.ff463fc6.css.map",
-    "main.3b77411d.js.map": "/SolarCompass/static/js/main.3b77411d.js.map"
+    "main.5769f48c.css.map": "/SolarCompass/static/css/main.5769f48c.css.map",
+    "main.f2c1028d.js.map": "/SolarCompass/static/js/main.f2c1028d.js.map"
   },
   "entrypoints": [
-    "static/css/main.ff463fc6.css",
-    "static/js/main.3b77411d.js"
+    "static/css/main.5769f48c.css",
+    "static/js/main.f2c1028d.js"
   ]
 }
