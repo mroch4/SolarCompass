@@ -1,6 +1,6 @@
-import { degreesToRadians } from "./radiansConverter";
+import degreesToRadians from "./degreesToRadians";
 
-export const drawRay = (ctx: CanvasRenderingContext2D, centerX: number, centerY: number, rayLength: number, angle: number, color: string): void => {
+const drawRay = (ctx: CanvasRenderingContext2D, centerX: number, centerY: number, rayLength: number, angle: number, color: string): void => {
   const angleTransformed = angle + degreesToRadians(270);
   const x = rayLength * Math.cos(angleTransformed) + centerX;
   const y = rayLength * Math.sin(angleTransformed) + centerY;
@@ -11,3 +11,5 @@ export const drawRay = (ctx: CanvasRenderingContext2D, centerX: number, centerY:
   ctx.strokeStyle = color;
   ctx.stroke();
 };
+
+export default drawRay;

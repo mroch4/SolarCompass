@@ -1,5 +1,7 @@
-export const TABS = {
-  Pri: "Main",
-  Sec: "Compass",
-  Tri: "Other",
-};
+enum TABS {
+  Pri = "Main",
+  Sec = "Map",
+  Tri = "Compass",
+}
+
+export default TABS;

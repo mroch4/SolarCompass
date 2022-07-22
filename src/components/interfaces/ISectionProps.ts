@@ -1,6 +1,8 @@
-export interface ISectionProps {
+interface ISectionProps {
   label: string;
   value: number;
   rounding?: number;
   unit?: string;
 }
+
+export default ISectionProps;

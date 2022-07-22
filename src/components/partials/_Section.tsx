@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
-import { ISectionProps } from "../../interfaces/props/ISectionProps";
-import { useAppContext } from "../../hooks/useAppContext";
+import ISectionProps from "../interfaces/ISectionProps";
+import useAppContext from "../../hooks/useAppContext";
 
 const Section: FC<ISectionProps> = (props): JSX.Element => {
   const { label, value, rounding, unit } = props;

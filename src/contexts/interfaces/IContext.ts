@@ -1,7 +1,7 @@
-import { ICoordinates } from "../ICoordinates";
-import { ILabels } from "../ILabels";
+import ICoordinates from "../../common/interfaces/ICoordinates";
+import ILabels from "../../labels/interfaces/ILabels";
 
-export interface IContextProps {
+interface IContext {
   appTime: Date;
   changeTime: (coords: Date) => void;
   coords: ICoordinates;
@@ -12,3 +12,5 @@ export interface IContextProps {
   changeIntl: (countryCode: string) => void;
   labels: ILabels;
 }
+
+export default IContext;

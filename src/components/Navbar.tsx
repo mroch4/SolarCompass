@@ -1,7 +1,7 @@
 import React, { FC, useRef } from "react";
 
-import { TABS } from "../common/TabsEnum";
-import { useAppContext } from "../hooks/useAppContext";
+import TABS from "../common/TabsEnum";
+import useAppContext from "../hooks/useAppContext";
 
 const Layout: FC = (): JSX.Element => {
   const { tab, changeTab } = useAppContext();

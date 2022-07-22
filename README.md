@@ -8,7 +8,7 @@ https://mroch4.github.io/javascript-project-2021/
 ## TODOs:
 
 Display time results with time zone correction\
-Add city input instead of pre-defined select field\
+Add city input instead of pre-defined select field
 
 ## Page URL:
 

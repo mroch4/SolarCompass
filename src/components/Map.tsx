@@ -1,8 +1,8 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import React, { FC } from "react";
 
-import UpdateMapCentre from "./UpdateMapCenter";
-import { useAppContext } from "../hooks/useAppContext";
+import UpdateMap from "./UpdateMap";
+import useAppContext from "../hooks/useAppContext";
 
 const Map: FC = (): JSX.Element => {
   const { coords } = useAppContext();
@@ -14,7 +14,7 @@ const Map: FC = (): JSX.Element => {
       <Marker position={[latitude, longitude]}>
         <Popup>Selected Location</Popup>
       </Marker>
-      <UpdateMapCentre center={[latitude, longitude]} />
+      <UpdateMap center={[latitude, longitude]} />
     </MapContainer>
   );
 };

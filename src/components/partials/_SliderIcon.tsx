@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
-import { IDateProps } from "../../interfaces/props/IDateProps";
-import { useAppContext } from "../../hooks/useAppContext";
+import IDateProps from "../interfaces/IDateProps";
+import useAppContext from "../../hooks/useAppContext";
 
 const SliderIcon: FC<IDateProps> = (props): JSX.Element => {
   const { label, date } = props;

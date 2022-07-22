@@ -1,13 +1,13 @@
 import React, { FC, useEffect, useRef } from "react";
 
-import { ICanvasProps } from "../interfaces/props/ICanvasProps";
-import { drawRay } from "../helpers/drawRay";
+import ICanvasProps from "./interfaces/ICanvasProps";
+import drawRay from "../helpers/drawRay";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 
 const Canvas: FC<ICanvasProps> = (props): JSX.Element => {
   const { currentAzimuth, sunRiseAzimuth, noonAzimuth, sunSetAzimuth } = props;
 
-  const ref = useRef(null);
+  const ref = useRef<HTMLCanvasElement>(null);
   const { width } = useWindowDimensions();
 
   useEffect(() => {

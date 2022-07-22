@@ -1,0 +1,19 @@
+section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.line {
+  display: flex;
+  justify-content: end;
+}

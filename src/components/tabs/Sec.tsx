@@ -2,10 +2,10 @@ import React, { FC } from "react";
 
 import Angle from "../partials/_Angle";
 import Canvas from "../Canvas";
-import { ICanvasProps } from "../../interfaces/props/ICanvasProps";
-import { ISectionProps } from "../../interfaces/props/ISectionProps";
+import ICanvasProps from "../interfaces/ICanvasProps";
+import ISectionProps from "../interfaces/ISectionProps";
 import suncalc from "suncalc";
-import { useAppContext } from "../../hooks/useAppContext";
+import useAppContext from "../../hooks/useAppContext";
 
 const Sec: FC = (): JSX.Element => {
   const { appTime, coords, labels } = useAppContext();
@@ -18,28 +18,28 @@ const Sec: FC = (): JSX.Element => {
   const sunSetAzimuth = suncalc.getPosition(solarTimes.sunset, latitude, longitude).azimuth;
 
   const currentAzimuthProps: ISectionProps = {
-    label: labels.CURRENT_AZIMUTH,
+    label: labels.AZIMUTH_CURRENT,
     value: Math.PI + currentAzimuth,
     unit: "°",
   };
 
   const sunRiseAzimuthProps: ISectionProps = {
-    label: labels.SUNRISE_AZIMUTH,
+    label: labels.AZIMUTH_SUNRISE,
     value: Math.PI + sunRiseAzimuth,
   };
 
   const solarNoonAzimuthProps: ISectionProps = {
-    label: labels.SOLARNOON_AZIMUTH,
+    label: labels.AZIMUTH_SOLARNOON,
     value: Math.PI + noonAzimuth,
   };
 
   const sunSetAzimuthProps: ISectionProps = {
-    label: labels.SUNSET_AZIMUTH,
+    label: labels.AZIMUTH_SUNSET,
     value: Math.PI + sunSetAzimuth,
   };
 
   const azimuthSpanProps: ISectionProps = {
-    label: labels.AMIUTH_SPAN,
+    label: labels.AZIMUTH_SPAN,
     value: Math.abs(sunRiseAzimuth - sunSetAzimuth),
   };
 

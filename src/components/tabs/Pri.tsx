@@ -1,43 +1,51 @@
-import React, { FC, useRef } from "react";
+import React, { FC } from "react";
 
-import Coordinates from "../Coordinates";
-import Form from "react-bootstrap/Form";
-import Location from "../Location";
-import Map from "../Map";
+import Angle from "../partials/_Angle";
+import Buttons from "../Buttons";
+import DateForm from "../DateForm";
+import IDateProps from "../interfaces/IDateProps";
+import ISectionProps from "../interfaces/ISectionProps";
+import Other from "../Other";
+import Section from "../partials/_Section";
 import Slider from "../Slider";
-import { useAppContext } from "../../hooks/useAppContext";
+import Time from "../partials/_Time";
+import suncalc from "suncalc";
+import useAppContext from "../../hooks/useAppContext";
 
 const Pri: FC = (): JSX.Element => {
-  const { appTime, changeTime } = useAppContext();
+  const { appTime, labels, coords } = useAppContext();
+  const { latitude, longitude } = coords;
 
-  const dateRef = useRef(null);
-  const timeRef = useRef(null);
-
-  const handleOnChange = () => {
-    const dateRefVal = dateRef.current.value;
-    const timeRefVal = timeRef.current.value;
-    const parsedDate = Date.parse(`${dateRefVal}T${timeRefVal}`);
-    const customDate = new Date(parsedDate);
-    changeTime(customDate);
+  const appTimeProps: IDateProps = {
+    label: labels.APP_TIME,
+    date: appTime,
   };
 
-  const datePlaceholder = appTime.toISOString().split("T")[0];
-  const timePlaceholder = appTime.toISOString().split("T")[1].slice(0, 5);
+  const currentAltitude = suncalc.getPosition(appTime, latitude, longitude).altitude;
+  const shadowLength = 1 / Math.tan(currentAltitude);
+
+  const altitudeProps: ISectionProps = {
+    label: labels.SUN_ALTITUDE,
+    value: currentAltitude,
+  };
+
+  const shadowProps: ISectionProps = {
+    label: labels.SHADOW,
+    rounding: 2,
+    value: shadowLength,
+  };
 
   return (
     <>
+      <Time {...appTimeProps} />
       <Slider />
-      <Form>
-        <Form.Group className="mt-1 mb-3">
-          <div className="input-group">
-            <input type="date" className="form-control" value={datePlaceholder} ref={dateRef} onChange={handleOnChange} />
-            <input type="time" className="form-control" value={timePlaceholder} ref={timeRef} onChange={handleOnChange} />
-          </div>
-        </Form.Group>
-      </Form>
-      <Location />
-      <Map />
-      <Coordinates />
+      <div className="my-2">
+        <DateForm />
+        <Buttons />
+      </div>
+      <Angle {...altitudeProps} />
+      {shadowLength > 0 ? <Section {...shadowProps} /> : null}
+      <Other />
     </>
   );
 };

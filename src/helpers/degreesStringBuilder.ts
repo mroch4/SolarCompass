@@ -1,6 +1,6 @@
-import { zeroPrefixer } from "./zeroPrefixer";
+import zeroPrefixer from "./zeroPrefixer";
 
-export const degreesStringBuilder = (decimalCoordinate: number): string => {
+const degreesStringBuilder = (decimalCoordinate: number): string => {
   const degrees = Math.trunc(decimalCoordinate);
   const degreesFormatted = Math.abs(degrees);
 
@@ -14,3 +14,5 @@ export const degreesStringBuilder = (decimalCoordinate: number): string => {
 
   return `${degreesFormatted}° ${minutesString}' ${secondsString}''`;
 };
+
+export default degreesStringBuilder;

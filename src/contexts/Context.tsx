@@ -1,15 +1,16 @@
 import React, { FC, createContext, useEffect, useState } from "react";
 
-import { IContextProps } from "../interfaces/props/IContextProps";
-import { IContextProviderProps } from "../interfaces/props/IContextProviderProps";
-import { ICoordinates } from "../interfaces/ICoordinates";
+import IContext from "./interfaces/IContext";
+import IContextProviderProps from "./interfaces/IContextProviderProps";
+import ICoordinates from "../common/interfaces/ICoordinates";
+import ILabels from "../labels/interfaces/ILabels";
+import LABELS from "../labels/Labels";
 import LOCATIONS from "../common/Locations";
-import { TABS } from "../common/TabsEnum";
-import { getLabelsPack } from "../helpers/getLabelsPack";
+import TABS from "../common/TabsEnum";
+import getLabelsPack from "../helpers/getLabelsPack";
 
-export const AppContext = createContext<IContextProps | null>(null);
-
-const initialIntl = "pl-PL";
+export const AppContext = createContext<IContext | null>(null);
+export const initialIntl = LABELS[0].intl;
 
 const initial = {
   appTime: new Date(),
@@ -26,7 +27,7 @@ const ContextProvider: FC<IContextProviderProps> = ({ children }) => {
   const [coords, setCoords] = useState<ICoordinates>(initial.coords);
   const [tab, setTab] = useState<string>(initial.tab);
   const [intl, setIntl] = useState<string>(initialIntl);
-  const [labelsPackage, setLabelsPack] = useState(initial.labelsPackage);
+  const [labelsPackage, setLabelsPack] = useState<ILabels>(initial.labelsPackage);
 
   useEffect(() => {
     const labelsPackage = getLabelsPack(intl);

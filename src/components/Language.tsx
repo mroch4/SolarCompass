@@ -1,29 +1,30 @@
-import { Container, Form } from "react-bootstrap";
+import React, { useState } from "react";
 
-import { LABELS } from "../common/Labels";
-import React from "react";
-import { useAppContext } from "../hooks/useAppContext";
+import { Form } from "react-bootstrap";
+import LABELS from "../labels/Labels";
+import { initialIntl } from "../contexts/Context";
+import useAppContext from "../hooks/useAppContext";
 
 const Language = () => {
-  const { intl, changeIntl } = useAppContext();
+  const { changeIntl } = useAppContext();
 
-  const isPL = intl === LABELS[0].intl;
-  const handleLanguageChange = () => {
-    if (isPL) {
-      changeIntl(LABELS[1].intl);
-    } else {
-      changeIntl(LABELS[0].intl);
-    }
+  const [currentINTL, setcurrentIntl] = useState<string>(initialIntl);
+
+  const handleChange = (intl: string) => {
+    changeIntl(intl);
+    setcurrentIntl(intl);
   };
 
+  const languages = LABELS.map((item) => item.intl);
+
   return (
-    <Container>
-      <Form>
-        <Form.Group className="mb-3">
-          <Form.Check type="checkbox" checked={isPL} onChange={handleLanguageChange} label="English" />
-        </Form.Group>
-      </Form>
-    </Container>
+    <Form.Select className="mb-3" value={currentINTL} onChange={(e) => handleChange(e.currentTarget.value)}>
+      {languages.map((lang) => (
+        <option key={lang} value={lang}>
+          {lang.split("-")[1]}
+        </option>
+      ))}
+    </Form.Select>
   );
 };
 
