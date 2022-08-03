@@ -27,6 +27,7 @@ const de_DE: ILabelsPack = {
     NIGHT_START: "Die astronomische Dämmerung beginnt:",
     SUN_ALTITUDE: "Sonnenhöhe:",
     SHADOW: "Schattenlängenfaktor:",
+    USER_LOCATION: "Benutzerstandort",
   },
 };
 

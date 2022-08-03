@@ -5,7 +5,7 @@ import LOCATIONS from "../common/Locations";
 import useAppContext from "../hooks/useAppContext";
 
 const Location: FC = (): JSX.Element => {
-  const { coords, changeCoords } = useAppContext();
+  const { coords, changeCoords, labels } = useAppContext();
   const { latitude, longitude } = coords;
 
   const getNavigator = () => {
@@ -42,14 +42,14 @@ const Location: FC = (): JSX.Element => {
     <Form className="mb-2">
       <Form.Group className="d-flex">
         <select className="form-control" value={getLocationId()} onChange={handleChange}>
-          <option value="user-location">User location</option>
+          <option value="user-location">{labels.USER_LOCATION}</option>
           {LOCATIONS.map((location) => (
             <option key={location.id} value={location.id}>
               {location.name}
             </option>
           ))}
         </select>
-        <Button className="ms-1" variant="outline-secondary" onClick={getNavigator}>
+        <Button className="ms-1" variant="light" onClick={getNavigator}>
           <img src="icons/location.svg" width="20" alt="Location icon" />
         </Button>
       </Form.Group>

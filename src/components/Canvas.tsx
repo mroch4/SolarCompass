@@ -23,7 +23,6 @@ const Canvas: FC<ICanvasProps> = (props): JSX.Element => {
       context.clearRect(0, 0, canvasWidth, canvasHeight);
       drawRay(context, centerX, centerY, width, currentAzimuth, "orange");
       drawRay(context, centerX, centerY, width, sunRiseAzimuth, "green");
-      drawRay(context, centerX, centerY, width, noonAzimuth, "black");
       drawRay(context, centerX, centerY, width, sunSetAzimuth, "red");
     }
   }, [currentAzimuth, noonAzimuth, sunRiseAzimuth, sunSetAzimuth, width]);

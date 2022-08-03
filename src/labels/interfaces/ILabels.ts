@@ -23,6 +23,7 @@ interface ILabels {
   NIGHT_START: string;
   SUN_ALTITUDE: string;
   SHADOW: string;
+  USER_LOCATION: string;
 }
 
 export default ILabels;

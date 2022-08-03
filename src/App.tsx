@@ -1,11 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "leaflet/dist/leaflet.css";
-import "./styles/canvas.css";
-import "./styles/card.css";
-import "./styles/header.css";
-import "./styles/index.css";
-import "./styles/navbar.css";
-import "./styles/section.css";
+import "./styles/styles.css";
 
 import ContextProvider from "./contexts/Context";
 import Layout from "./components/_Layout";

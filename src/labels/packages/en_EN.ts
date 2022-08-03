@@ -27,6 +27,7 @@ const en_EN: ILabelsPack = {
     NIGHT_START: "Astronomical twilight begins:",
     SUN_ALTITUDE: "Sun altitude:",
     SHADOW: "Shadow length factor:",
+    USER_LOCATION: "User location",
   },
 };
 

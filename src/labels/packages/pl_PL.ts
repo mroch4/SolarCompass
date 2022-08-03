@@ -5,7 +5,7 @@ const pl_PL: ILabelsPack = {
   labels: {
     APP_TIME: "Czas aplikacji:",
     AZIMUTH_CURRENT: "Bieżący azymut (żółty):",
-    AZIMUTH_SOLARNOON: "Azymut w południe (czarny):",
+    AZIMUTH_SOLARNOON: "Azymut w południe:",
     AZIMUTH_SPAN: "Dzienny przedział:",
     AZIMUTH_SUNSET: "Azymut przy zachodzie (czerwony):",
     AZIMUTH_SUNRISE: "Azymut przy wschodzie (zielony):",
@@ -27,6 +27,7 @@ const pl_PL: ILabelsPack = {
     NIGHT_START: "Początek zmierzchu astronomicznego:",
     SUN_ALTITUDE: "Wysokość słońca:",
     SHADOW: "Współczynnik dla cienia:",
+    USER_LOCATION: "Lokalizacja użytkownika",
   },
 };
 
