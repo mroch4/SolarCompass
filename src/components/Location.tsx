@@ -14,7 +14,7 @@ const Location: FC = (): JSX.Element => {
         changeCoords({ latitude: position.coords.latitude, longitude: position.coords.longitude });
       },
       (error) => {
-        alert(`Unable to get User location.\n\nError Code = ${error.code}: ${error.message}.`);
+        alert(`Unable to get User location.\n\nError Code = ${error.code}: ${labels.ALERT}.`);
       }
     );
   };

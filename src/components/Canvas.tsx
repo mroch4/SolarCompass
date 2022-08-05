@@ -2,6 +2,7 @@ import React, { FC, useEffect, useRef } from "react";
 
 import ICanvasProps from "./interfaces/ICanvasProps";
 import drawRay from "../helpers/drawRay";
+import drawSunIcon from "../helpers/drawSunIcon";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 
 const Canvas: FC<ICanvasProps> = (props): JSX.Element => {
@@ -22,8 +23,10 @@ const Canvas: FC<ICanvasProps> = (props): JSX.Element => {
     if (canvas) {
       context.clearRect(0, 0, canvasWidth, canvasHeight);
       drawRay(context, centerX, centerY, width, currentAzimuth, "orange");
+      drawRay(context, centerX, centerY, width, currentAzimuth + Math.PI, "black");
       drawRay(context, centerX, centerY, width, sunRiseAzimuth, "green");
       drawRay(context, centerX, centerY, width, sunSetAzimuth, "red");
+      drawSunIcon(context, centerX, centerY);
     }
   }, [currentAzimuth, noonAzimuth, sunRiseAzimuth, sunSetAzimuth, width]);
 

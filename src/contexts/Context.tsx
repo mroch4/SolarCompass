@@ -6,11 +6,13 @@ import ICoordinates from "../common/interfaces/ICoordinates";
 import ILabels from "../labels/interfaces/ILabels";
 import LABELS from "../labels/Labels";
 import LOCATIONS from "../common/Locations";
-import TABS from "../common/TabsEnum";
 import getLabelsPack from "../helpers/getLabelsPack";
 
 export const AppContext = createContext<IContext | null>(null);
-export const initialIntl = LABELS[0].intl;
+
+const initialIndex = 0;
+const initialTab = LABELS[initialIndex].labels.TAB_SEC;
+export const initialIntl = LABELS[initialIndex].intl;
 
 const initial = {
   appTime: new Date(),
@@ -18,7 +20,7 @@ const initial = {
     latitude: LOCATIONS[0].latitude,
     longitude: LOCATIONS[0].longitude,
   },
-  tab: TABS.Pri,
+  tab: initialTab,
   labelsPackage: getLabelsPack(initialIntl),
 };
 
@@ -33,6 +35,13 @@ const ContextProvider: FC<IContextProviderProps> = ({ children }) => {
     const labelsPackage = getLabelsPack(intl);
     setLabelsPack(labelsPackage);
   }, [intl]);
+
+  useEffect(() => {
+    const currentItem = LABELS.find((item) => item.intl === intl);
+    const indexOfcurrentItem = LABELS.indexOf(currentItem);
+    const secondTab = LABELS[indexOfcurrentItem].labels.TAB_SEC;
+    setTab(secondTab);
+  }, [intl, labelsPackage]);
 
   const contextValue = {
     appTime: appTime,

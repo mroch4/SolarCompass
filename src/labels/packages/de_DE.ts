@@ -3,9 +3,10 @@ import ILabelsPack from "../interfaces/ILabelsPack";
 const de_DE: ILabelsPack = {
   intl: "de-DE",
   labels: {
+    ALERT: "Benutzer verweigert Geolokalisierung",
     APP_TIME: "App-Zeit:",
     AZIMUTH_CURRENT: "Aktueller Azimut (gelb):",
-    AZIMUTH_SOLARNOON: "Mittagsazimut (schwarz):",
+    AZIMUTH_SOLARNOON: "Mittagsazimut:",
     AZIMUTH_SPAN: "Azimutspanne:",
     AZIMUTH_SUNSET: "Sonnenuntergangsazimut (rot):",
     AZIMUTH_SUNRISE: "Sonnenaufgangsazimut (grün):",
@@ -27,6 +28,9 @@ const de_DE: ILabelsPack = {
     NIGHT_START: "Die astronomische Dämmerung beginnt:",
     SUN_ALTITUDE: "Sonnenhöhe:",
     SHADOW: "Schattenlängenfaktor:",
+    TAB_PRI: "Daten",
+    TAB_SEC: "Karte",
+    TAB_TRI: "Kompass",
     USER_LOCATION: "Benutzerstandort",
   },
 };

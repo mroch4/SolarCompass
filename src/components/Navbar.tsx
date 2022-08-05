@@ -1,12 +1,17 @@
 import React, { FC, useRef } from "react";
 
-import TABS from "../common/TabsEnum";
 import useAppContext from "../hooks/useAppContext";
 
 const Layout: FC = (): JSX.Element => {
-  const { tab, changeTab } = useAppContext();
+  const { tab, changeTab, labels } = useAppContext();
 
   const ref = useRef<HTMLAnchorElement>(null);
+
+  const TABS = {
+    Pri: labels.TAB_PRI,
+    Sec: labels.TAB_SEC,
+    Tri: labels.TAB_TRI,
+  };
 
   return (
     <ul className="nav nav-tabs">

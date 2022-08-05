@@ -1,4 +1,5 @@
 interface ILabels {
+  ALERT: string;
   APP_TIME: string;
   AZIMUTH_CURRENT: string;
   AZIMUTH_SOLARNOON: string;
@@ -23,6 +24,9 @@ interface ILabels {
   NIGHT_START: string;
   SUN_ALTITUDE: string;
   SHADOW: string;
+  TAB_PRI: string;
+  TAB_SEC: string;
+  TAB_TRI: string;
   USER_LOCATION: string;
 }
 

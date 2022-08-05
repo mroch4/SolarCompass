@@ -3,9 +3,10 @@ import ILabelsPack from "../interfaces/ILabelsPack";
 const en_EN: ILabelsPack = {
   intl: "en-EN",
   labels: {
+    ALERT: "User denied Geolocation",
     APP_TIME: "App time:",
     AZIMUTH_CURRENT: "Current azimuth (yellow):",
-    AZIMUTH_SOLARNOON: "Noon azimuth (black):",
+    AZIMUTH_SOLARNOON: "Noon azimuth:",
     AZIMUTH_SPAN: "Azimuth span:",
     AZIMUTH_SUNSET: "Sunset azimuth (red):",
     AZIMUTH_SUNRISE: "Sunrise azimuth (green):",
@@ -27,6 +28,9 @@ const en_EN: ILabelsPack = {
     NIGHT_START: "Astronomical twilight begins:",
     SUN_ALTITUDE: "Sun altitude:",
     SHADOW: "Shadow length factor:",
+    TAB_PRI: "Data",
+    TAB_SEC: "Map",
+    TAB_TRI: "Compass",
     USER_LOCATION: "User location",
   },
 };

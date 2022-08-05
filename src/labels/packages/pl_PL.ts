@@ -3,6 +3,7 @@ import ILabelsPack from "../interfaces/ILabelsPack";
 const pl_PL: ILabelsPack = {
   intl: "pl-PL",
   labels: {
+    ALERT: "Użytkownik odmówił automatycznej geolokacji",
     APP_TIME: "Czas aplikacji:",
     AZIMUTH_CURRENT: "Bieżący azymut (żółty):",
     AZIMUTH_SOLARNOON: "Azymut w południe:",
@@ -27,6 +28,9 @@ const pl_PL: ILabelsPack = {
     NIGHT_START: "Początek zmierzchu astronomicznego:",
     SUN_ALTITUDE: "Wysokość słońca:",
     SHADOW: "Współczynnik dla cienia:",
+    TAB_PRI: "Info",
+    TAB_SEC: "Mapa",
+    TAB_TRI: "Kompas",
     USER_LOCATION: "Lokalizacja użytkownika",
   },
 };
